@@ -51,8 +51,11 @@ class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
 
     @Override
     protected void initChannel(SocketChannel arg0) throws Exception {
+        // 换行符解码器，如有\n或者\t\n则到索引位置组成一行，如果读到最大长度任然没有发现换行符，则抛出异常
         arg0.pipeline().addLast(new LineBasedFrameDecoder(1024));
+        // 将接受到的对象转换成字符串
         arg0.pipeline().addLast(new StringDecoder());
+        // 自定义处理器
         arg0.pipeline().addLast(new TimeServerHandler());
     }
 }
