@@ -1,5 +1,7 @@
 package com.teacherblitz.pojo;
 
+import org.msgpack.annotation.Message;
+
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 
@@ -9,6 +11,7 @@ import java.nio.ByteBuffer;
  * @author: <a href="mailto:teacherblitz@gmail.com">teacherblitz</a>
  * @since: 2020/8/4
  */
+@Message
 public class UserInfo implements Serializable {
 
     /**
